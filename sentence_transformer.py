@@ -44,7 +44,7 @@ def most_similar(query, sentences):
     # Find the highest similarity score
     result = scores.index(max(scores))
 
-    return sentences[result], scores[result]
+#     return sentences[result], scores[result]
 
 
 query = input("Enter a query sentence: ")

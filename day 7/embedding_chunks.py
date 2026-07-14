@@ -29,6 +29,4 @@ def most_similar(query, pages_text):
 query = input("Enter a query sentence: ")
 score = most_similar(query, pages_text)
 
-print("\nQuery:")
-print(query)
-print("Similarity Score:", score, pages_text[score])
+print("similarity score:", score, pages_text[score])

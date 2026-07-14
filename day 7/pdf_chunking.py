@@ -1,7 +1,7 @@
 from langchain_community.document_loaders import PyPDFLoader
 
-read = PyPDFLoader(file_path="day 7/test.pdf")
-pages = read.load_and_split()
+loader = PyPDFLoader(file_path="day 7/test.pdf")
+pages = loader.load_and_split()
 
 chunks= len(pages)
 print("number of chunks: ", chunks)

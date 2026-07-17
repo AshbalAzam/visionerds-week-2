@@ -11,7 +11,7 @@ from langchain_openai import OpenAIEmbeddings
 loader = PyPDFLoader(file_path="./day9/test.pdf")
 documents = loader.load()
 
-text_split = RecursiveCharacterTextSplitter(chunk_size=100,chunk_overlap=30)
+text_split = RecursiveCharacterTextSplitter(chunk_size=500,chunk_overlap=100)
 
 chunks = text_split.split_documents(documents)
 texts = [doc.page_content for doc in chunks]
@@ -31,6 +31,7 @@ vector_store = Chroma(
 )
 
 vector_store.add_documents(chunks)
+
 query= input("enter your query ")
 result = vector_store.similarity_search(query,k=4)
 # for i, doc in enumerate(result, start=1):
@@ -54,4 +55,7 @@ chat = client.chat.completions.create(model=model,
         temperature=0.7,)
 
 reply = chat.choices[0].message.content
-print(reply)
+print(reply,"\n\n\n\n")
+
+# for i, doc in enumerate(result, start=1):
+#     print(i,"-", doc.page_content)
